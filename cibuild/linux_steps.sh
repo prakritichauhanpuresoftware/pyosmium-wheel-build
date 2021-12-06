@@ -54,6 +54,9 @@ ln -sf $(pwd)/protozero pyosmium/contrib/protozero
 if [ "$(uname -m)" == "aarch64" ]
 then
     yum install -y expat-devel boost-devel zlib-devel
+    wget https://download-ib01.fedoraproject.org/pub/epel/7/aarch64/Packages/g/geos-devel-3.4.2-2.el7.aarch64.rpm
+    rpm -i geos-devel-3.4.2-2.el7.aarch64.rpm
+    yum -y install geos-devel
 else
     yum install -y sparsehash-devel expat-devel boost-devel zlib-devel
 fi
