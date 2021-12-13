@@ -54,14 +54,11 @@ ln -sf $(pwd)/pybind11 pyosmium/contrib/pybind11
 ln -sf $(pwd)/libosmium pyosmium/contrib/libosmium
 ln -sf $(pwd)/protozero pyosmium/contrib/protozero
 
+yum install -y expat-devel boost-devel zlib-devel
 if [ "$(uname -m)" == "aarch64" ]
 then
-    yum install -y expat-devel boost-devel zlib-devel
     wget https://download-ib01.fedoraproject.org/pub/epel/7/aarch64/Packages/g/geos-3.4.2-2.el7.aarch64.rpm
     rpm -i geos-3.4.2-2.el7.aarch64.rpm
-else
-    yum install -y sparsehash-devel expat-devel boost-devel zlib-devel
-fi
 
 # install bzip2
 build_new_zlib
