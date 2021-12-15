@@ -39,7 +39,7 @@ jobs:
         env:
           CIBW_ARCHS_LINUX: ${{matrix.arch}}
           CIBW_SKIP: "pp* *-manylinux_i686"
-          CIBW_BEFORE_TEST_LINUX: if[ "$(uname -m)" == "aarch64" ]; then wget https://download-ib01.fedoraproject.org/pub/epel/7/aarch64/Packages/g/geos-3.4.2-2.el7.aarch64.rpm && rpm -i geos-3.4.2-2.el7.aarch64.rpm; fi
+          CIBW_BEFORE_TEST_LINUX: "/bin/bash cibuild/linux_before_test.sh"
           CIBW_BEFORE_BUILD_LINUX: "/bin/bash cibuild/linux_steps.sh"
           CIBW_BEFORE_BUILD_MACOS: "/bin/bash cibuild/macos_steps.sh"
           CIBW_TEST_COMMAND: "cd {project}/pyosmium/test && rm -rf ../build && python -m nose"
